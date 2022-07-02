@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "default": "webrtc-trump",
+    "testing": "webrtc-trump"
+  },
+  "targets": {}
+}

@@ -65,3 +65,6 @@ node_modules/
 .env
 
 .idea
+
+# don't check in built files from vite
+dist

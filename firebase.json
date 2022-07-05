@@ -3,6 +3,7 @@
     "rules": "database.rules.json"
   },
   "hosting": {
+    "site": "webrtc-trump",
     "public": "dist",
     "ignore": [
       "firebase.json",

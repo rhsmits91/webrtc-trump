@@ -3,11 +3,10 @@ import React, { useContext, useMemo, useState } from 'react'
 import { Deal } from '../engine/trump'
 import { thisHookAlsoDependsOn } from '../utils/thisHookAlsoDependsOn'
 import { decodeCard } from '../engine/utils'
+import { useLobbyContext } from './LobbyProvider'
 
 interface Props {
-  activePlayerId: string
   children: React.ReactNode
-  playerIds: string[]
 }
 
 interface Game {
@@ -27,7 +26,9 @@ const GameContext = React.createContext<Game>({
   playCard: NO_OP,
 })
 
-const GameProvider: React.FC<Props> = ({ activePlayerId, children, playerIds }: Props) => {
+const GameProvider: React.FC<Props> = ({ children }: Props) => {
+  const { activePlayerId, players: playerIds } = useLobbyContext()
+
   const [version, setVersion] = useState<number>(0)
   const triggerUpdate = () => setVersion((prev) => prev + 1)
 
